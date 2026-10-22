@@ -1,6 +1,6 @@
 # Left 2 Mine: Survivor Command（求生之路：幸存者指令）
 
-> **Left 2 Mine: Survivor Command**（求生之路：幸存者指挥）为 **Left 2 Mine** 增加管理员、复活、载具保护、人机跟随与中英双语的 NeoForge 扩展。
+> **Left 2 Mine: Survivor Command**（求生之路：幸存者指令）为 **Left 2 Mine** 增加管理员、复活、载具保护、人机跟随与中英双语的 NeoForge 扩展。
 >
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-62b47a)
@@ -10,9 +10,6 @@
 ---
 
 ## 简介
-
-Left 2 Mine 是一套把《求生之路》玩法带进 Minecraft 的模组：战役地图、安全屋、特殊感染者、AI 幸存者和枪械战斗。
-
 本扩展解决服务器和单人长期游玩中比较常见的几个问题：
 
 - 管理员需要自由进出对局，但不能被自动加入、安全屋人数和团灭检测误算
