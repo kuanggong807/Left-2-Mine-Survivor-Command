@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.qiusheng.leftmineext.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ServerPlayerMessageMixin",
+    "MutableComponentMixin"
+  ],
+  "client": [
+    "client.GuiGraphicsStringMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

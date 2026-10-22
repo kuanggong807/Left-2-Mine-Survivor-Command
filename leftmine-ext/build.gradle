@@ -1,0 +1,100 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '1.0.14'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+repositories {
+    maven { name = 'LocalMaven'; url = uri(project.file('../tools/maven-local')) }
+    maven { url = 'https://maven.aliyun.com/repository/public/' }
+}
+
+repositories.withType(MavenArtifactRepository).configureEach { repo ->
+    def repoUrl = repo.url.toString()
+    if (repoUrl.contains('maven.neoforged.net/releases')) {
+        repo.url = uri('https://bmclapi2.bangbang93.com/maven/')
+    } else if (repoUrl.contains('maven.neoforged.net/mojang-meta')) {
+        repo.url = uri(project.file('../tools/maven-local'))
+    } else if (repoUrl.contains('libraries.minecraft.net')) {
+        repo.url = uri('https://bmclapi2.bangbang93.com/maven/')
+    }
+}
+
+dependencies {
+    // Compile-only dependencies; supplied at runtime by the mods folder.
+    compileOnly files(
+            'libs/left2mine-1.21.1-2.0.2.jar',
+            'libs/NeoMTR-300.6.1+1.21.1+neoforge.jar',
+            'libs/architectury-13.0.11-neoforge.jar'
+    )
+}
+
+neoForge {
+    version = project.neo_version
+
+    neoFormRuntime {
+        version = '1.0.32'
+        useEclipseCompiler = true
+    }
+
+    runs {
+        client {
+            client()
+            gameDirectory = project.file('../run-client')
+            programArguments.addAll '--quickPlaySingleplayer', 'ShengcunTest'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        server {
+            server()
+            gameDirectory = project.file('../run-server')
+            programArgument '--nogui'
+        }
+
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.INFO
+        }
+    }
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    def replaceProperties = [
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description,
+    ]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}

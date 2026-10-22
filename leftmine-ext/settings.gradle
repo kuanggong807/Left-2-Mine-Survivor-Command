@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        maven { name = 'BMCLAPI'; url = 'https://bmclapi2.bangbang93.com/maven/' }
+        maven { name = 'QLU'; url = 'https://mirrors.qlu.edu.cn/bmclapi/' }
+        maven { name = 'Aliyun'; url = 'https://maven.aliyun.com/repository/public/' }
+        maven { name = 'AliyunGradlePlugin'; url = 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'leftmine-ext'

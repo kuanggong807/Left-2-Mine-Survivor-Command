@@ -1,0 +1,20 @@
+Left 2 Mine: Survivor Command 源码包
+====================================
+
+版本: 1.0.0
+适配: Left 2 Mine 1.21.1-2.0.2
+环境: Minecraft 1.21.1 / NeoForge 21.1.264 / Java 21
+
+包含:
+- leftmine-ext 完整 Java 源码
+- en_us / zh_cn 语言文件
+- META-INF/neoforge.mods.toml、mixin 配置、pack.mcmeta
+- Gradle wrapper
+- 最小本地 Maven 元数据（tools/maven-local）
+- readme.md 与 BUILDING.md
+
+不包含:
+- Left 2 Mine / NeoMTR / Architectury 前置 jar
+- run-client、test-server、build 产物和游戏存档
+
+前置 jar 放置位置和构建命令见 BUILDING.md。

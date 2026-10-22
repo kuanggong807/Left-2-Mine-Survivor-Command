@@ -1,0 +1,215 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "net.neoforged",
+    "module": "neoform-runtime",
+    "version": "1.0.32",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.14.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "neoform-runtime-1.0.32.jar",
+          "url": "neoform-runtime-1.0.32.jar",
+          "size": 279348,
+          "sha512": "282760130f345938337d2faa98e7bc3ca2a7d2cf92e5c88e29409dc2ab52579b34d712b81bcc98d8a880ccf91432e25d2db27b216c747a9f3760d70560285e8d",
+          "sha256": "49a768a3990acf64ae934cb9f9470215e51168bda3cd9a44647fa04ac2496275",
+          "sha1": "d7a9d0e59a5d7cce172cd293d35adf6cfa12317a",
+          "md5": "90fa9b5be4dca98e503cb102c7192cba"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "info.picocli",
+          "module": "picocli",
+          "version": {
+            "requires": "4.7.6"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.10.1"
+          }
+        },
+        {
+          "group": "org.eclipse.jdt",
+          "module": "ecj",
+          "version": {
+            "requires": "3.38.0"
+          }
+        },
+        {
+          "group": "net.fabricmc",
+          "module": "fabric-loom-native",
+          "version": {
+            "requires": "0.2.1"
+          }
+        },
+        {
+          "group": "net.neoforged",
+          "module": "srgutils",
+          "version": {
+            "requires": "1.0.10"
+          }
+        },
+        {
+          "group": "net.neoforged.installertools",
+          "module": "problems-api",
+          "version": {
+            "requires": "3.0.3"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "neoform-runtime-1.0.32.jar",
+          "url": "neoform-runtime-1.0.32.jar",
+          "size": 279348,
+          "sha512": "282760130f345938337d2faa98e7bc3ca2a7d2cf92e5c88e29409dc2ab52579b34d712b81bcc98d8a880ccf91432e25d2db27b216c747a9f3760d70560285e8d",
+          "sha256": "49a768a3990acf64ae934cb9f9470215e51168bda3cd9a44647fa04ac2496275",
+          "sha1": "d7a9d0e59a5d7cce172cd293d35adf6cfa12317a",
+          "md5": "90fa9b5be4dca98e503cb102c7192cba"
+        }
+      ]
+    },
+    {
+      "name": "shadowRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "shadowed",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "neoform-runtime-1.0.32-all.jar",
+          "url": "neoform-runtime-1.0.32-all.jar",
+          "size": 4415073,
+          "sha512": "2f0d116170b0fa5e331398018461726de60bbdec87a2a5b8b869d193bfe57aad50e863efc738fa23dc6e3918596c2215cc6333d5560b83d89390412a45b417cf",
+          "sha256": "4dd3c96b40882e5919e147f1c106b01212634c2ed426a56135d5416065db6ece",
+          "sha1": "ad1e1e226c78e4018c4e6ef35e655d9cd7f643d4",
+          "md5": "939147523c517e7e995a69eeb6c7b557"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "neoform-runtime-1.0.32-sources.jar",
+          "url": "neoform-runtime-1.0.32-sources.jar",
+          "size": 117528,
+          "sha512": "31b45ce66fa5b89c788f530564009c118e3cfa0703fa39a344b1b3fd721842f1924dc59374255e555e50fb16250b6b19d6a6ba6bac1ddb943ce7a1244a19e9de",
+          "sha256": "8fbd53abf99874258504545574ff2ad41273df505bf05602dcc83ff13567e58d",
+          "sha1": "ce52d1e7c0f974bbad196b69429322274ca0f23e",
+          "md5": "ef21b0615e61a657b4a18f33ee963d07"
+        }
+      ]
+    },
+    {
+      "name": "changelog",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.docstype": "changelog"
+      },
+      "files": [
+        {
+          "name": "neoform-runtime-1.0.32-changelog.txt",
+          "url": "neoform-runtime-1.0.32-changelog.txt",
+          "size": 15876,
+          "sha512": "d31c310b288f9e7b39865cbf521a04b821f7adefe73476969a4ceaed5fa2f8363c646601e3cd5407374ea1c44c6a7b42bdb3ddec7f7d2e168d1eac77bd7f9c1f",
+          "sha256": "fc23546f47d2a709170726b170d9fc9e4b44ab9e8d3b1a8346005de43454baed",
+          "sha1": "3f49cc3ffd7454faa23713e5df9267dec52aa660",
+          "md5": "b8fcf0453775c53fe019d7360fe91028"
+        }
+      ]
+    },
+    {
+      "name": "externalTools",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.codechicken",
+          "module": "DiffPatch",
+          "version": {
+            "requires": "2.0.0.36"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "DiffPatch",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "all"
+            }
+          }
+        },
+        {
+          "group": "net.neoforged.jst",
+          "module": "jst-cli-bundle",
+          "version": {
+            "requires": "1.0.72"
+          }
+        },
+        {
+          "group": "net.minecraftforge",
+          "module": "mergetool",
+          "version": {
+            "requires": "1.1.7"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "mergetool",
+              "type": "jar",
+              "extension": "jar",
+              "classifier": "fatjar"
+            }
+          }
+        }
+      ],
+      "capabilities": [
+        {
+          "group": "net.neoforged",
+          "name": "neoform-runtime-external-tools",
+          "version": "1.0.32"
+        }
+      ]
+    }
+  ]
+}
