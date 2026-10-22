@@ -2,7 +2,6 @@
 
 > **Left 2 Mine: Survivor Command**（求生之路：幸存者指挥）为 **Left 2 Mine** 增加管理员、复活、载具保护、人机跟随与中英双语的 NeoForge 扩展。
 >
-> 不修改 Left 2 Mine 原 jar。
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21.1-62b47a)
 ![NeoForge](https://img.shields.io/badge/NeoForge-21.1.264-f16436)
