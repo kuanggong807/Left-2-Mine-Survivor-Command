@@ -6,7 +6,9 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
 import net.minecraft.commands.arguments.coordinates.Vec3Argument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -27,6 +29,7 @@ public final class LeftMineCommands {
             "leftmineext.help.admin_remove",
             "leftmineext.help.game_join",
             "leftmineext.help.game_leave",
+            "leftmineext.help.gas",
             "leftmineext.help.status",
             "leftmineext.help.tag"
     };
@@ -60,6 +63,20 @@ public final class LeftMineCommands {
                                 && AdminManager.isAdmin(player))
                         .executes(LeftMineCommands::leave));
 
+        LiteralArgumentBuilder<CommandSourceStack> gas = Commands.literal("gas")
+                .requires(source -> source.hasPermission(2))
+                .then(Commands.literal("set")
+                        .then(Commands.argument("pos", BlockPosArgument.blockPos())
+                                .then(Commands.argument("amount", IntegerArgumentType.integer(1, 64))
+                                        .then(Commands.argument("redstone", BlockPosArgument.blockPos())
+                                                .executes(LeftMineCommands::gasSet)))))
+                .then(Commands.literal("remove")
+                        .then(Commands.argument("pos", BlockPosArgument.blockPos())
+                                .executes(LeftMineCommands::gasRemove)))
+                .then(Commands.literal("time")
+                        .then(Commands.argument("seconds", IntegerArgumentType.integer(1, 60))
+                                .executes(LeftMineCommands::gasTime)));
+
         dispatcher.register(Commands.literal("leftmine")
                 .executes(ctx -> help(ctx.getSource()))
                 .then(Commands.literal("help")
@@ -68,7 +85,8 @@ public final class LeftMineCommands {
                         .executes(ctx -> status(ctx.getSource())))
                 .then(fuhuo)
                 .then(admin)
-                .then(game));
+                .then(game)
+                .then(gas));
     }
 
     private static int help(CommandSourceStack source) {
@@ -191,5 +209,48 @@ public final class LeftMineCommands {
         ctx.getSource().sendSuccess(
                 () -> Component.translatable("leftmineext.game.left_summary", player.getGameProfile().getName()), true);
         return 1;
+    }
+
+    private static int gasSet(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        BlockPos pos = BlockPosArgument.getLoadedBlockPos(ctx, "pos");
+        int amount = IntegerArgumentType.getInteger(ctx, "amount");
+        BlockPos redstone = BlockPosArgument.getLoadedBlockPos(ctx, "redstone");
+        ServerLevel level = ctx.getSource().getLevel();
+        GasPortData data = GasPortData.get(level);
+        GasPortData.GasPort port = data.setPort(level, pos, amount, redstone);
+        data.setActive(port);
+        GasFillManager.broadcastPort(level, port, true);
+        ctx.getSource().sendSuccess(
+                () -> Component.translatable("leftmineext.gas.set", pos.toShortString(), amount, redstone.toShortString()),
+                true);
+        return 1;
+    }
+
+    private static int gasRemove(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        BlockPos pos = BlockPosArgument.getLoadedBlockPos(ctx, "pos");
+        ServerLevel level = ctx.getSource().getLevel();
+        GasPortData data = GasPortData.get(level);
+        GasPortData.GasPort port = data.find(level, pos);
+        if (port == null) {
+            ctx.getSource().sendFailure(Component.translatable("leftmineext.gas.not_found"));
+            return 0;
+        }
+        boolean wasActive = data.activePort() == port;
+        data.remove(level, port);
+        if (wasActive) {
+            GasFillManager.broadcastPort(level, port, false);
+        }
+        ctx.getSource().sendSuccess(() -> Component.translatable("leftmineext.gas.removed", pos.toShortString()), true);
+        return 1;
+    }
+
+    private static int gasTime(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        int seconds = IntegerArgumentType.getInteger(ctx, "seconds");
+        for (ServerLevel level : ctx.getSource().getServer().getAllLevels()) {
+            GasPortData.get(level).setFillSeconds(seconds);
+        }
+        GasPortData.get(ctx.getSource().getLevel()).setFillSeconds(seconds);
+        ctx.getSource().sendSuccess(() -> Component.translatable("leftmineext.gas.time", seconds), true);
+        return seconds;
     }
 }

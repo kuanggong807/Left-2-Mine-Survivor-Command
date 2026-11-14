@@ -1,0 +1,18 @@
+{
+  "gas_can_fill_pour_01": {
+    "sounds": [
+      {
+        "name": "leftmineext:gas_can_fill_pour_01",
+        "stream": false
+      }
+    ]
+  },
+  "survival_teamrec": {
+    "sounds": [
+      {
+        "name": "leftmineext:survival_teamrec",
+        "stream": false
+      }
+    ]
+  }
+}

@@ -29,5 +29,20 @@
   "leftmineext.game.joined_self": "§aYou joined the session at §f%s",
   "leftmineext.game.joined_summary": "§aAdministrator §f%s §ajoined the session.",
   "leftmineext.game.left_self": "§eYou left the session and returned to creative; you no longer count toward saferoom totals.",
-  "leftmineext.game.left_summary": "§eAdministrator §f%s §eleft the session."
+  "leftmineext.game.left_summary": "§eAdministrator §f%s §eleft the session.",
+  "leftmineext.quest_gascan": "Quest Gas Can",
+  "leftmineext.help.gas": "§e/leftmine gas set <pos> <amount> <redstone> §7- set a gas port; §e/leftmine gas remove <pos> §7- remove a port; §e/leftmine gas time <seconds> §7- set fill time",
+  "leftmineext.gas.set": "§aGas port set at §f%s§a; requires §f%s §afills; redstone at §f%s",
+  "leftmineext.gas.time": "§aGas fill time set to §f%s §aseconds",
+  "leftmineext.gas.marker": "§6Gas Port §e%s§7/§e%s",
+  "leftmineext.gas.hud": "Adding fuel",
+  "leftmineext.gas.unit_added": "§aFuel added §f%s§7/§f%s",
+  "leftmineext.gas.complete": "§aRefueling complete; redstone placed",
+  "leftmineext.gas.no_port": "§cThis is not a valid gas port",
+  "leftmineext.gas.removed": "§aRemoved gas port at §f%s",
+  "leftmineext.gas.not_found": "§cNo gas port at that position",
+  "leftmineext.gas.busy": "§cAnother player is already using this gas port",
+  "item.leftmineext.quest_gascan": "Quest Gas Can",
+  "leftmineext.optional.mtr_missing": "§eNeoMTR is not installed; train/lift vehicle protection and bot following are unavailable: ",
+  "leftmineext.optional.customnpcs_missing": "§eCustomNPCs is not installed; NPC gun/throwable integration is unavailable: "
 }

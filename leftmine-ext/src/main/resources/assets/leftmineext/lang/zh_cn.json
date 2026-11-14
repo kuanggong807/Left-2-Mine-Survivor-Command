@@ -29,5 +29,20 @@
   "leftmineext.game.joined_self": "§a你已手动加入对局，当前位置：§f%s",
   "leftmineext.game.joined_summary": "§a管理员 §f%s §a已加入对局。",
   "leftmineext.game.left_self": "§e你已退出对局，回到创造模式；不会计入安全屋人数。",
-  "leftmineext.game.left_summary": "§e管理员 §f%s §e已退出对局。"
+  "leftmineext.game.left_summary": "§e管理员 §f%s §e已退出对局。",
+  "leftmineext.quest_gascan": "任务油桶",
+  "leftmineext.help.gas": "§e/leftmine gas set <方块坐标> <所需数量> <红石块坐标> §7- 设置加油口；§e/leftmine gas remove <方块坐标> §7- 删除加油口；§e/leftmine gas time <秒> §7- 设置加油时间",
+  "leftmineext.gas.set": "§a已设置加油口 §f%s§a，需要 §f%s §a次加油，红石放置点 §f%s",
+  "leftmineext.gas.time": "§a加油所需时间已设置为 §f%s §a秒",
+  "leftmineext.gas.marker": "§6加油口 §e%s§7/§e%s",
+  "leftmineext.gas.hud": "正在添加燃料",
+  "leftmineext.gas.unit_added": "§a已加油 §f%s§7/§f%s",
+  "leftmineext.gas.complete": "§a加油完成，红石块已放置",
+  "leftmineext.gas.no_port": "§c这里不是有效的加油口",
+  "leftmineext.gas.removed": "§a已删除加油口 §f%s",
+  "leftmineext.gas.not_found": "§c该坐标没有加油口",
+  "leftmineext.gas.busy": "§c该加油口已有其他玩家正在使用",
+  "item.leftmineext.quest_gascan": "任务油桶",
+  "leftmineext.optional.mtr_missing": "§e未安装 NeoMTR，列车/电梯载具保护与 Bot 跟随功能不可用：",
+  "leftmineext.optional.customnpcs_missing": "§e未安装 CustomNPCs，NPC 枪械/投掷物联动功能不可用："
 }

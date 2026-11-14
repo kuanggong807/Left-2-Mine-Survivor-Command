@@ -5,7 +5,14 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "ServerPlayerMessageMixin",
-    "MutableComponentMixin"
+    "MutableComponentMixin",
+    "SurvivorActorMixin",
+    "MobAttackMixin",
+    "EntityNPCAttackMixin",
+    "SwingMixin",
+    "GasCanFireMixin",
+    "CarryableEntityMixin",
+    "CarryableItemMixin"
   ],
   "client": [
     "client.GuiGraphicsStringMixin"

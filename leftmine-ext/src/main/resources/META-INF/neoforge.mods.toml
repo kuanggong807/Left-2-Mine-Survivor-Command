@@ -26,7 +26,7 @@ side = "BOTH"
 [[dependencies.${mod_id}]]
 modId = "left2mine"
 type = "required"
-versionRange = "[1.21.1-2.0.2,)"
+versionRange = "[1.21.1-2.0.8,)"
 ordering = "AFTER"
 side = "BOTH"
 
@@ -34,6 +34,13 @@ side = "BOTH"
 modId = "mtr"
 type = "optional"
 versionRange = "[300.6.1,)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${mod_id}]]
+modId = "customnpcs"
+type = "optional"
+versionRange = "[1.21.1,1.22)"
 ordering = "AFTER"
 side = "BOTH"
 
